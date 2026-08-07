@@ -1,3 +1,5 @@
+package cap02;
+
 public class ArithmeticOperatorsExample {
     public static void main(String[] args) {
         int a = 10;

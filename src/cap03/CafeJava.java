@@ -1,6 +1,8 @@
+package cap03;
+
 import java.util.Scanner;
 
-public class CoffeeShopDoWhileSystem {
+public class CafeJava {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -8,25 +10,21 @@ public class CoffeeShopDoWhileSystem {
 
         double totalAmount = 0;
         int coffeeQuantity = 0;
-        boolean continueOrdering = true;
+        boolean contenueOrdering = true;
 
-        do{
-            System.out.println("Choose your coffee size: (S) Small, (M) Medim, (L) Large, or (F) Finish");
-
+        while (contenueOrdering) {
+            System.out.println("Choose your coffe size: (S) Small, (M) Medium, (L) Large");
             String coffeeSize = sc.nextLine().toUpperCase();
 
             if (coffeeSize.equals("F")){
-                continueOrdering = false;
-            } else {
-                System.out.println(
-                    "Choose your coffee type:(E) Espresso, (C) Cappuccino, (L) Latte"
-                );
-
+                contenueOrdering = false;
+            } else{
+                System.out.println("Choose your coffee type: (E) Espresso, (C) Capuccino, (L) Latte");
                 String coffeeType = sc.nextLine().toUpperCase();
 
                 double price = 0;
 
-                switch (coffeeSize){
+                switch (coffeeSize) {
                     case "S":
                         price += 2.50;
                         break;
@@ -36,24 +34,23 @@ public class CoffeeShopDoWhileSystem {
                     case "L":
                         price += 3.50;
                         break;
-                    default:
-                        System.out.println("Invalid size option!");
-                        continue;
-
+                        default:
+                            System.out.println("Invalid coffee size!");
+                            continue;
                 }
 
                 switch (coffeeType) {
                     case "E":
                         price += 1.50;
                         System.out.println("Espresso coffee selected.");
-                                break;
+                        break;
                     case "C":
-                        price += 1.50;
-                        System.out.println("Cappuccino coffee selected.");
+                        price += 2.00;
+                        System.out.println("Espresso coffee selected.");
                         break;
                     case "L":
-                        price += 1.50;
-                        System.out.println("Latte coffee selected.");
+                        price += 2.50;
+                        System.out.println("Espresso coffee selected.");
                         break;
                     default:
                         System.out.println("Invalid coffee type!");
@@ -61,13 +58,14 @@ public class CoffeeShopDoWhileSystem {
                 }
 
                 totalAmount += price;
-                coffeeQuantity = coffeeQuantity++;
+                coffeeQuantity++;
 
                 System.out.println("Coffee added to the order!");
             }
-        } while (continueOrdering);
 
-        System.out.println("Your order has been completed. Total amount to pay: €" + totalAmount);
+        }
+
+        System.out.println("Your order has been completed. Total amount to pay: € " + totalAmount + ".");
         System.out.println("Number of coffees ordered: " + coffeeQuantity);
 
         sc.close();

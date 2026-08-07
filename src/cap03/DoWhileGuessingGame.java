@@ -1,3 +1,5 @@
+package cap03;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -23,9 +25,15 @@ public class DoWhileGuessingGame {
 
             if (guess == secretNumber){
                 System.out.println(
-
-                )
+                    "Congratulations! You guessed the secret number: " + secretNumber
+                );
+            } else {
+                System.out.println("Wrong guess! Try again.");
             }
-        }
+        } while (guess != secretNumber);
+
+        System.out.println("You guessed it in " + attempts + " attempts!");
+
+        sc.close();
     }
 }
